@@ -1,0 +1,116 @@
+.post-container{
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+    margin: 20px 0px;
+}
+.post-wrapper{
+    padding: 10px;
+}
+.post-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-top-left{
+    display: flex;
+    align-items: center;
+}
+.post-top-image{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.post-top-username{
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 10px;
+    color: black;
+}
+.post-top-username-link{
+    text-decoration: none;
+}
+.post-top-date{
+    font-size: 13px;
+    font-style: italic;
+}
+.post-center{
+    margin: 20px 0;
+}
+.post-center-postImg{
+    margin-top: 20px;
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+}
+.post-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-bottom-left{
+    display: flex;
+    align-items: center;
+}
+.post-bottom-like{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.post-bottom-like-counter{
+    font-size: 13px;
+}
+.post-bottom-comment{
+    font-size: 13px;
+    margin-right: 10px;
+}
+.post-bottom-right{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.post-comment-wrapper{
+    margin: 20px;
+    width: 540px;
+}
+.post-comment-top{
+    display: flex;
+    justify-content: space-between;
+}
+.post-comment-title{
+    font-weight: 600;
+}
+.post-comment-button{
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+.post-comment-textarea{
+    margin-top: 5px;
+    border: none;
+    width: 100%;
+}
+.post-comment-textarea:focus{
+    border: none;
+}
+.post-comment-bottom{
+    border-top: 1px solid gray;
+    padding-top: 20px;
+}
+.post-comment-username{
+    font-size: 15px;
+    font-weight: 600;
+}
+.post-comment-comment{
+    font-size: 13px;
+    font-style: italic;
+}
+.post-comment-container{
+    margin-bottom: 5px;
+}
+.bookmarkColor{
+    color: goldenrod!important;
+}

@@ -1,0 +1,31 @@
+media Query: 1000 (width)
+
+const filename=image.name+(Math.random)*10;
+        console.log(filename);
+        const uploadTask = storage.ref(`images/${filename}`).put(image);
+        uploadTask.on("state_changed",snapshot => {
+            const progress = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            setProgress(progress);
+          },
+          error => {
+            console.log(error);
+          },() => {
+            storage.ref("images").child(filename).getDownloadURL()
+              .then(u => {
+                console.log(u);
+                setLink(prevObject => ({...prevObject, link: u}));
+              });
+          }
+        );
+        try{
+            const userData={
+                userId:user._id,
+                profilePicture:filename
+            }
+            const res=await axios.put(URL+`user/${user._id}`,userData);
+            console.log(res);
+        }catch(err){
+            console.log(err);
+        }

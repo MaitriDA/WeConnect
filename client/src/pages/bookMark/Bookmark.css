@@ -1,0 +1,6 @@
+.bookmark-container{
+    display: flex;
+}
+.bookmark-right{
+    flex: 9.5;
+}

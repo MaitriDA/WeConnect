@@ -1,0 +1,64 @@
+.share-container{
+    width: 100%;
+    min-height: 150px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+}
+.share-wrapper{
+    padding: 10px;
+}
+.share-top{
+    display: flex;
+    align-items: center;
+}
+.share-profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.share-input{
+    margin-left: 10px;
+    border: none;
+    width: calc(100%);
+    max-height: 100px;
+}
+.share-input:focus{
+    outline: none;
+}
+.share-hr{
+    margin-top: 5px;
+}
+.share-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.share-options{
+    display: flex;
+}
+.share-option{
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    cursor: pointer;
+}
+.share-icon{
+    font-size: 18px;
+    margin-right: 3px;
+}
+.share-option-text{
+    font-size: 14px;
+    font-weight: 500;
+}
+.share-option-button{
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}

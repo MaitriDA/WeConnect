@@ -1,0 +1,32 @@
+
+.left-sidebar-container{
+    flex: 2.5;
+    height: calc(100vh - 50px);
+    position: sticky;
+    top: 50px;
+}
+
+.left-sidebar-wrapper{
+    padding: 20px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.left-sidebar-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.left-sidebar-listItem{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.left-sidebar-listItem-icon{
+    margin-right: 15px;
+}
+.left-sidebar-link{
+    text-decoration: none;
+    color: black;
+}

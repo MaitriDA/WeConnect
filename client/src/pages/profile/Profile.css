@@ -1,0 +1,97 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+} */
+.profile-container{
+    display: flex;
+}
+.profile-right{
+    flex: 9.5;
+}
+.profile-right-bottom{
+    display: flex;
+}
+.profile-images{
+    height: 320px;
+    position: relative;
+}
+.profile-cover-image{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.profile-profile-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 150px;
+    border: 3px solid white;
+}
+.profile-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.profile-info-name{
+    font-size: 24px;
+}
+.profile-description-container{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.profile-description{
+    border: none;
+    text-align: center;
+    width: 90%;
+    margin: 10px;
+}
+.profile-city{
+    margin-top: 10px;
+    border: none;
+    text-align: center;
+    width: 90%;
+}
+.profile-city:focus{
+    border: none;
+}
+.profile-country{
+    border: none;
+    text-align: center;
+    width: 90%;
+    margin-bottom: 5px;
+}
+.profile-edit{
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    padding:5px 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.profile-edit-container{
+    padding: 20px;
+}
+.input-fields-container{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+.input-fields{
+    border: none;
+    border-bottom: 1px solid gray;
+}
+.profile-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
