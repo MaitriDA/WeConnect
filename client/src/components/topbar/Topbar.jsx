@@ -36,7 +36,9 @@ const Topbar = () => {
                 </div>
             </div>
             <div className="topbar-center">
-                <span className="logo">WeConnect</span>
+                <Link to="/" className="topbar-link">
+                    <span className="logo">WeConnect</span>
+                </Link>
             </div>
             <div className="topbar-right">
                 <div className="topbar-links">

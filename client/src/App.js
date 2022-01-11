@@ -9,6 +9,7 @@ import {BrowserRouter as Router,Switch,Route,Redirect} from 'react-router-dom';
 import { AuthContext } from './context/AuthContext';
 import Bookmark from './pages/bookMark/Bookmark';
 import ProfileEdit from './pages/profile/ProfileEdit';
+import Chat from './pages/chat/Chat';
 
 
 
@@ -28,6 +29,7 @@ const App = () => {
           <Route exact path="/friends"><Topbar/><Friends/></Route>
           <Route exact path="/profile/:id"><Topbar/><Profile/></Route>
           <Route exact path="/bookmark"><Topbar/><Bookmark/></Route>
+          <Route exact path="/chat"><Topbar/><Chat/></Route>
           <Route exact path="/profile/:id/edit"><Topbar/><Profile/><ProfileEdit/></Route>
         </Switch>
       </Router>

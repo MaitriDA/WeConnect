@@ -8,12 +8,10 @@ router.post("/register",async (req,res)=>{
     try{
         var userFind=await User.findOne({username:req.body.username});
         if(userFind){
-            console.log("Username exists")
-            res.status(200).json("User name exist")
+            res.status(200).json("Username already exist")
         }
         userFind=await User.findOne({email:req.body.email});
         if(userFind){
-            console.log("email exists")
             res.status(200).json("User already exist");
         }
         //Hash password
@@ -27,9 +25,9 @@ router.post("/register",async (req,res)=>{
         });
         //Save user
         const user=await newUser.save();
-        res.status(200).json({message:"User Registered"});
+        res.status(200).json("User Registered");
     }catch(err){
-        console.log(err)
+        res.status(500).json("Error");
     }
 });
 
@@ -39,21 +37,19 @@ router.post("/login",async (req,res)=>{
         //Find user
         const user=await User.findOne({email:req.body.email});
         if(!user){
-            res.status(404).json({message:"User not found"});
+            res.status(200).json("User not found");
         }
         else{
-            //Check password
             const validPassword=await bcrypt.compare(req.body.password,user.password);
             if(!validPassword){
-                res.status(400).json({message:"Invalid Credentials"})
+                res.status(200).json("Invalid Credentials")
             }
             else{
-                console.log("Login successful")
                 res.status(200).json(user)
             }
         }
     }catch(err){
-        console.log(err);
+        res.status(500).json("Error")
     } 
 })
 

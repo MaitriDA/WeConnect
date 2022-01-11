@@ -58,6 +58,9 @@
 .register-input:focus{
     outline: none;
 }
+.register-login-link{
+    width: 100%;
+}
 .register-button, .register-login{
     height: 40px;
     border-radius: 10px;

@@ -8,9 +8,9 @@ router.put("/:id",async(req,res)=>{
             const user=await User.findByIdAndUpdate(req.params.id,{
                 $set:req.body
             });
-            res.status(200).json({message:"Acount Updated"})
+            res.status(200).json("Acount Updated")
         }catch(err){
-            res.status(400).json({message:"Error"})
+            res.status(400).json("Error")
         }
     }
     else{

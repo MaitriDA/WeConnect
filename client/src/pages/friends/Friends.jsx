@@ -4,7 +4,6 @@ import './Friends.css';
 import { Users } from '../../data';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
-import FriendCard from './FriendCard';
 
 const Friends = () => {
     const URL=process.env.REACT_APP_URL;

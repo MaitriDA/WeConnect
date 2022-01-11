@@ -58,6 +58,9 @@
 .login-input:focus{
     outline: none;
 }
+.login-register-link{
+    width: 100%;
+}
 .login-button, .login-register{
     height: 40px;
     border-radius: 10px;
@@ -74,7 +77,4 @@
 }
 .login-register{
     background-color: #42b72a;
-}
-.login-register-none{
-    display: none;
 }

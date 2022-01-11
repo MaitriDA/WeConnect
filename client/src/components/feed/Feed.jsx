@@ -16,7 +16,6 @@ const Feed = ({page}) => {
             if(page.page==="profile"){
                 const res=await axios.get(URL+`post/${page.userId}/user`)
                 setPosts(res.data); 
-                console.log("Profile")
             }
             else if(page.page==="bookmark"){
                 const res=await axios.get(URL+`post/${user._id}/bookmark`)
@@ -26,7 +25,6 @@ const Feed = ({page}) => {
         else{
             const res=await axios.get(URL+`post/${user._id}/followings`)
             setPosts(res.data);
-            console.log("Normal")
         }
     }
     useEffect(async()=>{     
@@ -37,7 +35,6 @@ const Feed = ({page}) => {
         var dateA = new Date(a.updatedAt), dateB = new Date(b.updatedAt);
         return dateB - dateA
     })
-    console.log(posts);
     return (
         <div className="feed-container">
             <div className="feed-wrapper">
