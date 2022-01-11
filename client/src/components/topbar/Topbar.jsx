@@ -47,12 +47,12 @@ const Topbar = () => {
                 </div>
                 <div className="topbar-icons">
                     <div className="topbar-icon">
-                        <Badge badgeContent={4} color="secondary">
+                        <Badge badgeContent={4} color="primary">
                             <ChatIcon/>
                         </Badge>       
                     </div>
                     <div className="topbar-icon">
-                        <Badge badgeContent={4} color="secondary">
+                        <Badge badgeContent={4} color="primary">
                             <NotificationsIcon/>
                         </Badge>
                     </div>

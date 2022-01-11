@@ -1,5 +1,8 @@
 server/.env
 server/node_modules
+
 server/config.env
 client/config.env
 client/src/firebase
+
+socket/node_modules

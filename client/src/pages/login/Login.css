@@ -22,7 +22,7 @@
 .login-brandname{
     font-size: 40px;
     font-weight: bold;
-    color: #1775ee;
+    color: #D35100;
     margin-bottom: 10px;
 }
 .login-desc{
@@ -40,7 +40,7 @@
     border-radius: 10px;
 }
 .login-heading{
-    color: #42b72a;
+    color: black;
     font-size: 27px;
     font-weight: 700;
     margin-bottom: 30px;
@@ -53,7 +53,7 @@
     font-size: 18px;
     margin-top: 5px;
     margin-bottom: 5px;
-    background-color: #e9f2ff;
+    background-color: #f0f2f5;
 }
 .login-input:focus{
     outline: none;
@@ -73,8 +73,8 @@
     cursor: pointer;
 }
 .login-button{
-    background-color: #1775ee;
+    background-color: #D35100;
 }
 .login-register{
-    background-color: #42b72a;
+    background-color: #F8A145;
 }

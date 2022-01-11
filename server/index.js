@@ -5,7 +5,9 @@ const helmet=require("helmet");
 const cors=require("cors");
 const userRoute=require("./routes/users.js");
 const authRoute=require("./routes/auth.js");
-const postRoute=require("./routes/posts.js")
+const postRoute=require("./routes/posts.js");
+const coversationRoute=require("./routes/conversation.js");
+const messageRoute=require("./routes/message.js");
 
 const app=express();
 
@@ -23,6 +25,9 @@ app.use(cors());
 app.use("/server/auth",authRoute);
 app.use("/server/user",userRoute);
 app.use("/server/post",postRoute);
+app.use("/server/conversation",coversationRoute);
+app.use("/server/message",messageRoute);
+
 
 app.listen(5000,()=>{
     console.log("Server running on PORT 5000")

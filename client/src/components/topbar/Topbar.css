@@ -1,7 +1,7 @@
 .topbar-container{
     height: 50px;
     width: 100%;
-    background-color: #1877f2;
+    background-color: #D35100;
     display: flex;
     align-items: center;
     position: sticky;
@@ -16,7 +16,7 @@
 .topbar-searchbar{
     height: 30px;
     width: 100%;
-    background-color: #c7dfff;
+    background-color: #f0f2f5;
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 30px;
@@ -29,7 +29,7 @@
 .topbar-searchinput{
     border: none;
     width: 80%;
-    background-color: #c7dfff;
+    background-color: #f0f2f5;
 }
 .topbar-searchinput:focus{
     outline: none;

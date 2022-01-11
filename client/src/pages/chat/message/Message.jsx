@@ -1,13 +1,23 @@
-import React from 'react';
+import React,{useState,useEffect, useContext} from 'react';
+import { AuthContext } from '../../../context/AuthContext';
 import './Message.css';
+import {format} from "timeago.js"
 
-const Message = ({type}) => {
+const Message = ({msg}) => {
+  const {user}=useContext(AuthContext);
+  const [own,setOwn]=useState(false);
+
+  useEffect(()=>{
+    if(msg.sender===user._id){
+      setOwn(true)
+    }
+  },[])
   return (
-    <div className={type ? "message own" : "message"}>
+    <div className={own ? "message own" : "message"}>
       <div className="messageTop">
-        <p className="messageText">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur unde error quisquam, hic suscipit repudiandae aliquid qui voluptatum laborum cumque illo doloribus quaerat at id maiores. Quos suscipit quaerat architecto?</p>
+        <p className="messageText">{msg.msg}</p>
       </div>
-      <div className="messageBottom">Time</div>
+      <div className="messageBottom">{format(msg.createdAt)}</div>
     </div>
   )
 }
