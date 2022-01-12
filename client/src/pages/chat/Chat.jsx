@@ -15,7 +15,9 @@ const Chat = () => {
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [msg,setMsg]=useState("");
+  const [friend,setFriend]=useState();
   const [arrivingMsg,setArrivingMsg]=useState(null);
+  const [online,setOnline]=useState([]);
   const socket=useRef()
   const scrollRef=useRef();
 
@@ -36,10 +38,24 @@ const Chat = () => {
   const handleConversation=async(c)=>{
     setCurrentChat(c);
     getMessages(c._id);
+    const id1=c.member[0];
+    const id2=c.member[1];
+    var friendId;
+    if(id1===user._id){
+      friendId=id2;
+    }
+    else{
+      friendId=id1;
+    }
+    try{
+      const res=await axios.get(URL+`user/${friendId}`);
+      setFriend(res.data.username)
+    }catch(err){
+      console.log("Error")
+    }
   }
 
   const handleSendMsg=async()=>{
-    console.log(msg);
     const chat={
       "conversationId":currentChat._id,
       "msg":msg,
@@ -55,7 +71,6 @@ const Chat = () => {
     })
     try{
       const res=await axios.post(URL+`message/`,chat);
-      console.log(res);
       getMessages(currentChat._id);
 
     }catch(err){
@@ -87,12 +102,11 @@ const Chat = () => {
       setArrivingMsg({data})
     })
   },[])
-  console.log(socket);
 
   useEffect(()=>{
     socket.current.emit("addUser",user._id);
     socket.current.on("getUsers",users=>{
-      console.log(users)
+      setOnline(users);
     })
   },[user])
   return (
@@ -112,6 +126,7 @@ const Chat = () => {
       </div>
       <div className="chatBox">
         {currentChat?<div className="chatBoxWrapper">
+          <div className="chatBoxUsername">{friend}</div>
           <div className="chatBoxTop">
             {messages.length!==0?<div>
               {messages.map(m=>(
@@ -140,10 +155,9 @@ const Chat = () => {
         <div className="chatOnlineWrapper">
           Online friends
           <div className="onlineList">
-            <Online />
-            <Online />
-            <Online />
-            <Online />
+          {online.map(o=>(
+            <Online key={o.userId} userId={o.userId}/>
+          ))}
           </div>
         </div>
       </div>

@@ -15,7 +15,6 @@ const Friends = () => {
         try{
             const res=await axios.get(URL+`user/${user._id}/friends`);
             setFriends(res.data);
-            console.log(res.data);
         }catch(err){
             console.log(err);
         }
@@ -29,11 +28,21 @@ const Friends = () => {
             console.log(err);
         }
     }
+    const createConversation=async(id)=>{
+        const conv={
+            senderId:user._id,
+            receiverId:id
+        }
+        try{
+            const res=await axios.post(URL+`conversation`,conv);
+            console.log(res);
+        }catch(err){
+            console.log("Error");
+        }
+    }
     const handleUnFollow=async (id)=>{
-        console.log(id)
         try{
             const res=await axios.put(URL+`user/${id}/unfollow`,{userId:user._id});
-            console.log(res);
             fetchFriends();
             fetchSuggestions();
         }catch(err){
@@ -41,12 +50,26 @@ const Friends = () => {
         }
     }
     const handleFollow=async (id)=>{
-        console.log(id)
         try{
             const res=await axios.put(URL+`user/${id}/follow`,{userId:user._id});
-            console.log(res);
             fetchSuggestions();
             fetchFriends();
+        }catch(err){
+            console.log(err);
+        }
+        try{
+            const res=await axios.get(URL+`conversation/${user._id}`);
+            const conv=res.data;
+            var present=false;
+            conv.map(f=>{
+                const res=f.member.includes(id);
+                if(res===true){
+                    present=true;
+                }
+            })
+            if(!present){
+                createConversation(id);
+            }
         }catch(err){
             console.log(err);
         }

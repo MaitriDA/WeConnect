@@ -29,9 +29,11 @@ io.on("connection", socket => {
     //Send and get message
     socket.on("sendMessage",({senderId,receiverId,text})=>{
         const user=getUser(receiverId);
-        io.to(user.socketId).emit("getMessage",{
-            senderId,text
-        })
+        if(user){
+            io.to(user.socketId).emit("getMessage",{
+                senderId,text
+            })
+        }
     })
 
     //If the user is offline remove the user from array
