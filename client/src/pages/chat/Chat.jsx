@@ -6,6 +6,7 @@ import SendIcon from '@material-ui/icons/Send';
 import Online from '../chat/online/Online';
 import { AuthContext } from '../../context/AuthContext';
 import axios from "axios";
+import {io} from "socket.io-client";
 
 const Chat = () => {
   const { user } = useContext(AuthContext);
@@ -14,7 +15,10 @@ const Chat = () => {
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [msg,setMsg]=useState("");
+  const [arrivingMsg,setArrivingMsg]=useState(null);
+  const socket=useRef()
   const scrollRef=useRef();
+
   const getConversations = async () => {
     const res = await axios.get(URL + `conversation/${user._id}`)
     setConversation(res.data)
@@ -40,7 +44,15 @@ const Chat = () => {
       "conversationId":currentChat._id,
       "msg":msg,
       "sender":user._id
-    }
+    };
+
+    const receiverId=currentChat.member.find(member=>member!==user._id)
+
+    socket.current.emit("sendMessage",{
+      senderId:user._id,
+      receiverId,
+      text:msg
+    })
     try{
       const res=await axios.post(URL+`message/`,chat);
       console.log(res);
@@ -51,15 +63,38 @@ const Chat = () => {
     }
     setMsg("");
   }
+
   useEffect(() => {
     getConversations();
     if(currentChat){
       getMessages(currentChat);
     }
   }, [])
+
+  useEffect(()=>{
+    if(currentChat){
+      getMessages(currentChat._id);
+    }
+  },[arrivingMsg]);
+
   useEffect(()=>{
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   })
+
+  useEffect(()=>{
+    socket.current=io("ws://localhost:8900");
+    socket.current.on("getMessage",data=>{
+      setArrivingMsg({data})
+    })
+  },[])
+  console.log(socket);
+
+  useEffect(()=>{
+    socket.current.emit("addUser",user._id);
+    socket.current.on("getUsers",users=>{
+      console.log(users)
+    })
+  },[user])
   return (
     <div className="messenger">
       <div className="chatMenu">
