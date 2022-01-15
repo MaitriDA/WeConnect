@@ -30,10 +30,7 @@ const Topbar = () => {
     return (
         <div className="topbar-container">
             <div className="topbar-left">
-                <div className="topbar-searchbar">
-                    <SearchIcon className="topbar-searchicon"/>
-                    <input placeholder="Search for friends,posts etc" className="topbar-searchinput" />
-                </div>
+                
             </div>
             <div className="topbar-center">
                 <Link to="/" className="topbar-link">
@@ -41,21 +38,17 @@ const Topbar = () => {
                 </Link>
             </div>
             <div className="topbar-right">
-                <div className="topbar-links">
-                    <span className="topbar-link">Home</span>
-                    <span className="topbar-link">TimeLine</span>
-                </div>
+                <Link to='/' className="topbar-right-link">
+                    <div className="topbar-links">
+                        <span className="topbar-link">Home</span>
+                    </div>
+                </Link>
                 <div className="topbar-icons">
-                    <div className="topbar-icon">
-                        <Badge badgeContent={4} color="primary">
-                            <ChatIcon/>
-                        </Badge>       
-                    </div>
-                    <div className="topbar-icon">
-                        <Badge badgeContent={4} color="primary">
-                            <NotificationsIcon/>
-                        </Badge>
-                    </div>
+                    <Link to='/chat' className="topbar-right-link">
+                        <div className="topbar-icon">
+                            <ChatIcon/> 
+                        </div>
+                    </Link>
                 </div>
                 <Link to={`/profile/${user._id}`}>
                     {currUser.profilePicture?<img src={currUser.profilePicture} alt="" className="topbar-profile"/>:<img src={profile} alt="" className="topbar-profile"/>}

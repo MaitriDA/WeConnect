@@ -8,6 +8,12 @@ const PostSchema=new mongoose.Schema({
     description:{
         type:String,
     },
+    tags:{
+        type:String,
+    },
+    location:{
+        type:String,
+    },
     image:{
         type:String
     },

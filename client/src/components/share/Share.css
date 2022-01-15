@@ -24,7 +24,19 @@
     width: calc(100%);
     max-height: 100px;
 }
+.share-input-tag{
+    margin-top: 10px;
+    border: none;
+    width: calc(100% - 20px);
+    max-height: 100px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    padding: 10px;
+}
 .share-input:focus{
+    outline: none;
+}
+.share-input-tag:focus{
     outline: none;
 }
 .share-hr{

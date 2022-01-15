@@ -8,9 +8,9 @@ router.post("/",async(req,res)=>{
         //Create new Post
         const newPost=new Post(req.body);
         const post=await newPost.save();
-        res.status(200).json({message:"Post Created"})
+        res.status(200).json("Post Created")
     }catch(err){
-        res.status(500).json({message:"Error"})
+        res.status(500).json("Error")
     }
 })
 
@@ -64,7 +64,6 @@ router.put("/:id/like",async(req,res)=>{
         }
     }catch(err){
         res.status(500).json(err)
-        console.log(err)
     }
 })
 
@@ -86,7 +85,6 @@ router.put("/:id/heart",async(req,res)=>{
         }
     }catch(err){
         res.status(500).json(err)
-        console.log(err)
     }
 })
 
@@ -103,7 +101,6 @@ router.put("/:id/comment",async(req,res)=>{
         }
     }catch(err){
         res.status(500).json(err)
-        console.log(err)
     }
 })
 
@@ -127,7 +124,6 @@ router.put("/:id/bookmark",async(req,res)=>{
         }
     }catch(err){
         res.status(500).json(err)
-        console.log(err)
     }
 })
 
@@ -144,7 +140,6 @@ router.get("/:id/bookmark",async(req,res)=>{
         
     }catch(err){
         res.status(500).json(err)
-        console.log(err)
     }
 })
 
@@ -165,13 +160,10 @@ router.get("/:id1/bookmarkcheck/:id2",async(req,res)=>{
 })
 //Get Posts of user
 router.get("/:id/user",async(req,res)=>{
-    console.log(req.params.id)
     try{
         const post=await Post.find({userId:req.params.id})
-        console.log(post);
         res.status(200).json(post)
     }catch(err){
-        console.log(err)
         res.status(500).json({message:"Error"})
     }
 })

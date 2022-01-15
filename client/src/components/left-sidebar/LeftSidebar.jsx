@@ -29,23 +29,11 @@ const LeftSidebar = () => {
                             <span className="left-sidebar-listItem-text">Chat</span>
                         </li>
                     </Link>
-                    <Link to="/playVideo" className="left-sidebar-link">
-                        <li className="left-sidebar-listItem">
-                            <PlayCircleFilledIcon className="left-sidebar-listItem-icon"/>
-                            <span className="left-sidebar-listItem-text">Play Videos</span>
-                        </li>
-                    </Link>
                     <Link to ="/friends" className="left-sidebar-link">
 
                         <li className="left-sidebar-listItem">
                             <EmojiPeopleIcon className="left-sidebar-listItem-icon"/>
                             <span className="left-sidebar-listItem-text">Friends</span>
-                        </li>
-                    </Link>
-                    <Link to="/group" className="left-sidebar-link">
-                        <li className="left-sidebar-listItem">
-                            <GroupIcon className="left-sidebar-listItem-icon"/>
-                            <span className="left-sidebar-listItem-text">Group</span>
                         </li>
                     </Link>
                     <Link to="/bookmark" className="left-sidebar-link">
@@ -54,7 +42,7 @@ const LeftSidebar = () => {
                             <span className="left-sidebar-listItem-text">Bookmark</span>
                         </li>
                     </Link>
-                    <Link to="/jobs" className="left-sidebar-link">
+                    {/*<Link to="/jobs" className="left-sidebar-link">
                         <li className="left-sidebar-listItem">
                             <WorkIcon className="left-sidebar-listItem-icon"/>
                             <span className="left-sidebar-listItem-text">Jobs</span>
@@ -71,7 +59,7 @@ const LeftSidebar = () => {
                             <HelpIcon className="left-sidebar-listItem-icon"/>
                             <span className="left-sidebar-listItem-text">Help</span>
                         </li>
-                    </Link>
+                    </Link>*/}
                 </ul>
             </div>
         </div>

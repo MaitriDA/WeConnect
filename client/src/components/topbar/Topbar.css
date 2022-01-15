@@ -76,3 +76,7 @@
 .topbar-link{
     text-decoration: none;
 }
+.topbar-right-link{
+    text-decoration: none;
+    color: white;
+}

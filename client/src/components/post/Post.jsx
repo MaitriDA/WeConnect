@@ -10,6 +10,12 @@ import Dialog from '@material-ui/core/Dialog';
 import {format} from "timeago.js";
 import {Link} from "react-router-dom";
 import { AuthContext } from '../../context/AuthContext';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const Post = ({post}) => {
     const URL=process.env.REACT_APP_URL;
@@ -21,20 +27,46 @@ const Post = ({post}) => {
     const [comment,setComment]=useState("");
     const [postOwner,setPostOwner]=useState({});
     const [bookmark,setBookmark]=useState(false);
+    const [open, setOpen] = useState(false);
+    const [msg,setMsg]=useState("Success");
+    const [type,setType]=useState("success");
     const userData={"userId":user._id}
     
     const handleLike=async ()=>{
         const res=await axios.put(URL+`post/${post._id}/like`,userData)
         if(res.data==="Post liked"){
             setLike(like+1);
+            setMsg(res.data);
+            setOpen(true);
+        }
+        else if(res.data==="Post already liked"){
+            setMsg(res.data);
+            setOpen(true);
+            setType("warning")
+        }
+        else if(res.data==="You can't like your post"){
+            setMsg(res.data);
+            setOpen(true);
+            setType("warning")
         }
         
     }
     const handleLove=async ()=>{
-        const res=await axios.put(URL+`post/${post._id}/heart`,userData)
-        console.log(res);
+        const res=await axios.put(URL+`post/${post._id}/heart`,userData);
         if(res.data==="Post loved"){
             setHeart(heart+1);
+            setMsg(res.data);
+            setOpen(true);
+        }
+        else if(res.data==="Post already loved"){
+            setMsg(res.data);
+            setOpen(true);
+            setType("warning")
+        }
+        else if(res.data==="You can't love your post"){
+            setMsg(res.data);
+            setOpen(true);
+            setType("warning")
         }
     }
 
@@ -72,6 +104,14 @@ const Post = ({post}) => {
         const status=await axios.get(URL+`post/${user._id}/bookmarkcheck/${post._id}`);
         setBookmark(status.data);
     }
+
+    const handleClose = (event, reason) => {
+        if(reason === 'clickaway'){
+            return;
+        }
+        setOpen(false);
+    };
+
     useEffect(()=>{
         fetchPostOwner();
         checkBookMarkStatus();
@@ -92,12 +132,13 @@ const Post = ({post}) => {
                     </div>
                     <div className="post-top-right">
                             <span className="post-top-date">{format(post.createdAt)}</span>
+                            {post.location?<div>{post.location}</div>:<div></div>}
                         </div>
                 </div>
                 <div className="post-center">
                     <span className="post-center-text">{post.description}</span>
+                    <div className="post-center-tags">{post.tags}</div>
                     {post.image?<img src={post.image} alt="" className="post-center-postImg" />:<div></div>}
-                    {/* <img src={post.photo} alt="" className="post-center-postImg" /> */}
                 </div>
                 <div className="post-bottom">
                     <div className="post-bottom-left">
@@ -138,6 +179,9 @@ const Post = ({post}) => {
                     </div>
                 </div>
             </div>
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={type}>{msg}</Alert>
+            </Snackbar>
         </div>
     )
 }

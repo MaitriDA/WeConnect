@@ -17,13 +17,13 @@
     align-items: center;
 }
 .post-top-image{
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     object-fit: cover;
 }
 .post-top-username{
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 600;
     margin: 0 10px;
     color: black;
@@ -37,6 +37,11 @@
 }
 .post-center{
     margin: 20px 0;
+}
+.post-center-tags{
+    margin-top: 10px;
+    color: #D35100;
+    font-weight: 500;
 }
 .post-center-postImg{
     margin-top: 20px;
